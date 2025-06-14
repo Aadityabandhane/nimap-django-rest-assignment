@@ -98,7 +98,8 @@ def user_projects(request):
             'id': project['id'],
             'project_name': project['project_name'],
             'created_at': project['created_at'],
-            'created_by': project['created_by'],
+            'created_by': User.objects.get(id=project['created_by']).username,
+            # 'created_by':project['created_by'],
         }
         response_data.append(project_data)
 
